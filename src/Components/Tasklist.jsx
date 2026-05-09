@@ -33,6 +33,7 @@ const TaskList = () => {
                         >
                         <Trash2 size={8}/>
                     </button>
+            
                 </li>
                     
                      
