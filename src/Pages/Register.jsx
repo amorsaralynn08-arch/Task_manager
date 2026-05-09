@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { register } from "../Redux/AuthManager"
+import { useNavigate } from "react-router-dom"
 
 function Register() {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     username: "",
@@ -25,13 +28,11 @@ function Register() {
       "user",
       JSON.stringify(formData)
     )
-
-    dispatch({
-      type: "REGISTER",
-      data: formData
-    })
+ 
+   dispatch(register(formData))
 
     alert("Registration successful ")
+    navigate("/login")
   }
 
   return (

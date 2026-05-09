@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { login } from "../Redux/AuthManager"
+import { useNavigate } from "react-router-dom"
 
 function Login() {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     email: "",
@@ -30,12 +33,10 @@ function Login() {
       savedUser.password === formData.password
     ) {
 
-      dispatch({
-        type: "LOGIN",
-        data: savedUser
-      })
+      dispatch(login(savedUser))
 
       alert("Login successful ")
+      navigate("/dashboard")
 
     } else {
       alert("Invalid email or password")
