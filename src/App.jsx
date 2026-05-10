@@ -1,44 +1,66 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import './App.css'
+
 import Login from './Pages/Login'
 import Register from './Pages/Register'
-import TaskForm from './Components/Features/Taskform'
-import TaskList from './Components/Features/Tasklist'
-import navbar from './Components/Features/navbar'
 
+import Taskform from './Components/Features/Taskform'
+import Tasklist from './Components/Features/Tasklist'
+import Navbar from './Components/Features/Navbar'
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+
+  const [tasks, setTasks] = useState([])
+
   function handleAddTask(newTask) {
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, newTask])
+  }
+
+  function handleDeleteTask(id) {
+    setTasks(tasks.filter(task => task.id !== id))
+  }
+
+  function handleToggleTask(id) {
+    setTasks(
+      tasks.map(task =>
+        task.id === id
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    )
   }
 
   return (
-    <>
-<BrowserRouter>
-<navbar/>
-<Routes>
-  <Route path="/" element={<Register/>} />
-  <Route path="/login" element={<Login/>}/>
-  <Route path="/tasks" element={<TaskList tasks={tasks} onAddTask={handleAddTask} />} />
-  <>
-  <TaskForm onAddTask={handleAddTask} />
-  <TaskList tasks={tasks} onDeleteTask={handleDeleteTask} onToggleTask={handleToggleTask} />
-  <task item tasks={tasks} onDeleteTask={handleDeleteTask} onToggleTask={handleToggleTask} />
-  </>
+    <BrowserRouter>
 
+      <Navbar />
 
+      <Routes>
 
+        <Route path="/" element={<Register />} />
 
+        <Route path="/login" element={<Login />} />
 
-</Routes>
-  
-</BrowserRouter>
-      
-    </>
+        <Route
+          path="/tasks"
+          element={
+            <>
+              <Taskform onAddTask={handleAddTask} />
+
+              <Tasklist
+                tasks={tasks}
+                onDelete={handleDeleteTask}
+                onToggle={handleToggleTask}
+              />
+            </>
+          }
+        />
+
+      </Routes>
+
+    </BrowserRouter>
   )
 }
 
