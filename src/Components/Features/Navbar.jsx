@@ -1,11 +1,11 @@
 function Navbar({user, onLogout,pendingCount}) {
     return(
-        <Nav>
+        <nav>
             <h1>Task Manager</h1>
             <div>
                 {user ? (
                     <>
-                    <span>{user.name}</span>
+                    <span>{user.username}</span>
                     <span>Pending Tasks: {pendingCount}</span>
                     <button onClick={onLogout}>Logout</button>
                     </>
@@ -13,7 +13,7 @@ function Navbar({user, onLogout,pendingCount}) {
                     <span>Please log in</span>
                 )}
             </div>
-        </Nav>
+        </nav>
     )
 
 }
