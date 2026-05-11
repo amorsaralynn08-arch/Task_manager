@@ -1,10 +1,10 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer, useContext } from 'react';
 import { TaskReducer, initialState } from '../TaskReducer';
 
-const TaskContext = createContext();
+const TaskContext = createContext(null);
 
 export const TaskProvider = ({ children }) => {
-  const [tasks, dispatch] = useReducer(taskReducer, initialState);
+  const [tasks, dispatch] = useReducer(TaskReducer, initialState);
 
   return (
     <TaskContext.Provider value={{ tasks, dispatch }}>
