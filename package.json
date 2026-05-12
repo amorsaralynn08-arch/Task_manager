@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@base-ui/react": "^1.4.1",
     "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.3.0",
@@ -22,6 +23,22 @@
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.3.0",
     "tw-animate-css": "^1.4.0"
+=======
+    "@reduxjs/toolkit": "^2.11.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "react-redux": "^9.2.0"
+=======
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.15.0"
+>>>>>>> ff316c020ead196548a545d0e7fa119f4eddd67e
+=======
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.15.0"
+>>>>>>> ff316c020ead196548a545d0e7fa119f4eddd67e
+>>>>>>> f2915b884baf3805d47fd9b686a8107013a1f5ce
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
